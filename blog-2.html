@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Second Blog Post</title>
+ <!-- Latest compiled and minified CSS -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+ <div class="container">
+  <h1><a href="https://jonathan-zz-zhao.github.io/my-blog">My Blog</a></h1>
+ </div>
+</head>
+<body>
+ <div class="container">
+<div class="row">
+ <div class="col-md-8">
+  <h3>Second Blog Post</h3>
+  <label>2019-06-13</label>
+  <h1>Type 1 or Type 2?</h1>
+<p>One of the greatest things that I have struggled with inferential statistics is hypothesis testing. Without going any further, there is little doubt that the image below best expresses what the difference between Type 1 and Type 2 error refers to.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span> 
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span> <span class="s2">&quot;https://2378nh2nfow32gm3mb25krmuyy-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Type-I-and-II-errors1-625x468.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img src="https://2378nh2nfow32gm3mb25krmuyy-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Type-I-and-II-errors1-625x468.jpg"/></p>
+<p>Jokes aside, we can begin with the basics of hypothesis testing in inferential statistics and then move onto what exactly does Type I and Type II error mean!</p>
+<h2>Hypothesis Testing</h2>
+<p>The idea behind hypothesis testing is simple, much like how we wrote labs for experiments during high school. We plan the experiment, formulate some hypothesis, gather some results, and make a comment about whether if the results concur with our original hypothesis. The only exception now is that rather than stating it in a more qualitative format, we are being quantitative with whether if our hypothesis is true or not (in the relative and scientific sense because there are no absolute truths). </p>
+<p>In inferential statistics, the principles of hypothesis testing involves making a hypothesis about the statistical relationship between two variables. It is statistically significant (yay, your experiement worked well with good results!) if the relationship between the data sets would be unlikely to be the null hypothesis (more on this later). Therefore, during hypothesis testing, we are more about trying to reject the null-hypothesis based on the level of significance that we deem is acceptable. Within the scientific community, the number has arrived at being 95%, which has posed a lot of problems because there have been ethical issues with falsifying or omitting data in order to reach this level of significance so that their respective papers can get published. </p>
+<h2>Null and Alternative Hypothesis and the Errors</h2>
+<p>We begin with the null hypothesis. The null hypothesis is simply a statement that is null. This means that it is a statement that makes a general comment on how there isn't any relationship between the two variables. </p>
+<p>Say we wanted to test if drug XYZ can cure aids. The null hypothesis would simply be "taking XYZ does not cure aids". </p>
+<p>Therefore, the alternative hypothesis would then be the opposite of the null hypothesis, directly contradicting it. In the same example, it would then be "taking XYZ does cure aids". </p>
+<p>Referring back to our meme, type I error (or false positive) occurs when the null hypothesis was found to be true, but is rejected. The significance level is the probability of rejecting the null hypothesis given that it is true. In the context of the example, it would be that someone took XYZ, and they were cured of aids, but their curing was actually not due to the drug itself. The error would then occur if we accidentally reject the null hypothesis even if it was true, and the probability of doing so (within the scientific world) must be less than 5%. The significance was purely due to chance, rather than the drug doing the job. </p>
+<p>Then, there is type II error. In a way, it is the opposite, which occurs if the null hypothesis is false, but was not rejected. It is also called the false-negative. With drug XYZ, this means that the drug does in fact cure aids, but the individual was not affected, and evaluating the probability of this occuring. Various tests can be utilized to test the errors, but here is a simple summary of the types of errors. </p>
+<div class="highlight"><pre><span></span><span class="n">Image</span> <span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://www.kean.edu/~fosborne/bstat/px/table-of-errors.gif&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img src="https://www.kean.edu/~fosborne/bstat/px/table-of-errors.gif"/></p>
+<h2>Applying to Python</h2>
+<p>When applying the hypothesis testing to python, it is often useful to use a confusion matrix as part of the process, which we will demonstrate here. </p>
+<p>While it is named as confusion matrix, it does anything but to confuse you. Instead, the matrix's purpose is to describe the performance of the classification model where we know the true value. In this example, we will use pregnancy women, and testing if a new machine would be able to accurately predict if the women were actually pregnant. </p>
+<div class="highlight"><pre><span></span><span class="c1">#binary indication of pregnancy, 0 denoting not pregnant, 1 denoting pregnancy</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">actual</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">prediction</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="n">confusion_matrix</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>array([[5, 2],
+       [0, 5]])
+</pre></div>
+
+
+<p>The confusion matrix is broken down into the first row as true positive and false positive, and second row as false negative and true negative. We can make this a bit clearer to see the differences, and to highlight the overall accuracy of the pregnancy test machine. </p>
+<div class="highlight"><pre><span></span><span class="n">false_positive</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span> <span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">false_negative</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span> <span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;False positive error is&quot;</span><span class="p">,</span> <span class="n">false_positive</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>False positive error is 2
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Flase negative error is&quot;</span><span class="p">,</span> <span class="n">false_negative</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>Flase negative error is 0
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="p">((</span><span class="n">false_positive</span><span class="o">+</span><span class="n">false_negative</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;The accuracy is&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>The accuracy is 0.8333333333333334
+</pre></div>
+
+
+<p>Lastly, we can briefly address the degrees of freedom issue that had been a common concern. When applied to the pregnancy test, we can first be aware of the observer who has no interest in this topic at all, and if they aren't estimating anything for the pregnancy machine, then the data and values can be any number as they are free to vary. However, when the observer begins to be interested, and wants to apply inferential statistics, such as the mean using a sample size, then we have the first constraint of estimating this mean, and that the number of samples multiplied by the mean will need to be the sum of these values. Each of the numbers are free to vary, as long as their mean is the same. Therefore, degrees of freedom is defined by the number of values that can vary based on the requirements. </p>
+ </div>
+</div>
+ </div>
+</body>
+</html>

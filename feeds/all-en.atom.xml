@@ -4327,4 +4327,86 @@ memory usage: 1.3+ MB
 
 
 &lt;p&gt;&lt;img alt="png" src="Blog-Post-1_files/Blog-Post-1_50_1.png"&gt;&lt;/p&gt;
-&lt;p&gt;There we have the most rudimentary and basics of EDA. There are various aspects that could have been improved upon within the existing demonstration. For one, the drop could have been iterated rather than listing out the four values. We can improve the function by using a for loop to check for any value that is greater than say, 2500, and dropping the corresponding outliers. Further processes would involve using dummy variables, and evidently, a lot more depth can be attempted at EDA for the curious perfectionist. &lt;/p&gt;</content><category term="python"></category></entry></feed>
+&lt;p&gt;There we have the most rudimentary and basics of EDA. There are various aspects that could have been improved upon within the existing demonstration. For one, the drop could have been iterated rather than listing out the four values. We can improve the function by using a for loop to check for any value that is greater than say, 2500, and dropping the corresponding outliers. Further processes would involve using dummy variables, and evidently, a lot more depth can be attempted at EDA for the curious perfectionist. &lt;/p&gt;</content><category term="python"></category></entry><entry><title>Second Blog Post</title><link href="https://jonathan-zz-zhao.github.io/my-blog/blog-2.html" rel="alternate"></link><published>2019-06-13T10:20:00-04:00</published><updated>2019-06-13T10:20:00-04:00</updated><author><name>Jonathan</name></author><id>tag:jonathan-zz-zhao.github.io,2019-06-13:/my-blog/blog-2.html</id><summary type="html">&lt;h1&gt;Type 1 or Type 2?&lt;/h1&gt;
+&lt;p&gt;One of the greatest things that I have struggled with inferential statistics is hypothesis testing. Without going any further, there is little doubt that the image below best expresses what the difference between Type 1 and Type 2 error refers to.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;Type 1 or Type 2?&lt;/h1&gt;
+&lt;p&gt;One of the greatest things that I have struggled with inferential statistics is hypothesis testing. Without going any further, there is little doubt that the image below best expresses what the difference between Type 1 and Type 2 error refers to.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.core.display&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;HTML&lt;/span&gt; 
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;https://2378nh2nfow32gm3mb25krmuyy-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Type-I-and-II-errors1-625x468.jpg&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="https://2378nh2nfow32gm3mb25krmuyy-wpengine.netdna-ssl.com/wp-content/uploads/2014/05/Type-I-and-II-errors1-625x468.jpg"/&gt;&lt;/p&gt;
+&lt;p&gt;Jokes aside, we can begin with the basics of hypothesis testing in inferential statistics and then move onto what exactly does Type I and Type II error mean!&lt;/p&gt;
+&lt;h2&gt;Hypothesis Testing&lt;/h2&gt;
+&lt;p&gt;The idea behind hypothesis testing is simple, much like how we wrote labs for experiments during high school. We plan the experiment, formulate some hypothesis, gather some results, and make a comment about whether if the results concur with our original hypothesis. The only exception now is that rather than stating it in a more qualitative format, we are being quantitative with whether if our hypothesis is true or not (in the relative and scientific sense because there are no absolute truths). &lt;/p&gt;
+&lt;p&gt;In inferential statistics, the principles of hypothesis testing involves making a hypothesis about the statistical relationship between two variables. It is statistically significant (yay, your experiement worked well with good results!) if the relationship between the data sets would be unlikely to be the null hypothesis (more on this later). Therefore, during hypothesis testing, we are more about trying to reject the null-hypothesis based on the level of significance that we deem is acceptable. Within the scientific community, the number has arrived at being 95%, which has posed a lot of problems because there have been ethical issues with falsifying or omitting data in order to reach this level of significance so that their respective papers can get published. &lt;/p&gt;
+&lt;h2&gt;Null and Alternative Hypothesis and the Errors&lt;/h2&gt;
+&lt;p&gt;We begin with the null hypothesis. The null hypothesis is simply a statement that is null. This means that it is a statement that makes a general comment on how there isn't any relationship between the two variables. &lt;/p&gt;
+&lt;p&gt;Say we wanted to test if drug XYZ can cure aids. The null hypothesis would simply be "taking XYZ does not cure aids". &lt;/p&gt;
+&lt;p&gt;Therefore, the alternative hypothesis would then be the opposite of the null hypothesis, directly contradicting it. In the same example, it would then be "taking XYZ does cure aids". &lt;/p&gt;
+&lt;p&gt;Referring back to our meme, type I error (or false positive) occurs when the null hypothesis was found to be true, but is rejected. The significance level is the probability of rejecting the null hypothesis given that it is true. In the context of the example, it would be that someone took XYZ, and they were cured of aids, but their curing was actually not due to the drug itself. The error would then occur if we accidentally reject the null hypothesis even if it was true, and the probability of doing so (within the scientific world) must be less than 5%. The significance was purely due to chance, rather than the drug doing the job. &lt;/p&gt;
+&lt;p&gt;Then, there is type II error. In a way, it is the opposite, which occurs if the null hypothesis is false, but was not rejected. It is also called the false-negative. With drug XYZ, this means that the drug does in fact cure aids, but the individual was not affected, and evaluating the probability of this occuring. Various tests can be utilized to test the errors, but here is a simple summary of the types of errors. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Image&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;https://www.kean.edu/~fosborne/bstat/px/table-of-errors.gif&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img src="https://www.kean.edu/~fosborne/bstat/px/table-of-errors.gif"/&gt;&lt;/p&gt;
+&lt;h2&gt;Applying to Python&lt;/h2&gt;
+&lt;p&gt;When applying the hypothesis testing to python, it is often useful to use a confusion matrix as part of the process, which we will demonstrate here. &lt;/p&gt;
+&lt;p&gt;While it is named as confusion matrix, it does anything but to confuse you. Instead, the matrix's purpose is to describe the performance of the classification model where we know the true value. In this example, we will use pregnancy women, and testing if a new machine would be able to accurately predict if the women were actually pregnant. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#binary indication of pregnancy, 0 denoting not pregnant, 1 denoting pregnancy&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;actual&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;prediction&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.metrics&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;confusion_matrix&lt;/span&gt;
+&lt;span class="n"&gt;confusion_matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;actual&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prediction&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([[5, 2],
+       [0, 5]])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The confusion matrix is broken down into the first row as true positive and false positive, and second row as false negative and true negative. We can make this a bit clearer to see the differences, and to highlight the overall accuracy of the pregnancy test machine. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;false_positive&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;confusion_matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;actual&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prediction&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;false_negative&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;confusion_matrix&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;actual&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prediction&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;False positive error is&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;false_positive&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;False positive error is 2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Flase negative error is&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;false_negative&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Flase negative error is 0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;accuracy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;false_positive&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;false_negative&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;The accuracy is&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;accuracy&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;The accuracy is 0.8333333333333334
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Lastly, we can briefly address the degrees of freedom issue that had been a common concern. When applied to the pregnancy test, we can first be aware of the observer who has no interest in this topic at all, and if they aren't estimating anything for the pregnancy machine, then the data and values can be any number as they are free to vary. However, when the observer begins to be interested, and wants to apply inferential statistics, such as the mean using a sample size, then we have the first constraint of estimating this mean, and that the number of samples multiplied by the mean will need to be the sum of these values. Each of the numbers are free to vary, as long as their mean is the same. Therefore, degrees of freedom is defined by the number of values that can vary based on the requirements. &lt;/p&gt;</content><category term="python"></category></entry></feed>
