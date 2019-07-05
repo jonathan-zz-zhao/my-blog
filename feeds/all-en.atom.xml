@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Blog</title><link href="https://jonathan-zz-zhao.github.io/my-blog/" rel="alternate"></link><link href="https://jonathan-zz-zhao.github.io/my-blog/feeds/all-en.atom.xml" rel="self"></link><id>https://jonathan-zz-zhao.github.io/my-blog/</id><updated>2019-06-13T10:20:00-04:00</updated><entry><title>Exploratory Data Analysis</title><link href="https://jonathan-zz-zhao.github.io/my-blog/blog-1.html" rel="alternate"></link><published>2019-06-13T10:20:00-04:00</published><updated>2019-06-13T10:20:00-04:00</updated><author><name>Jonathan</name></author><id>tag:jonathan-zz-zhao.github.io,2019-06-13:/my-blog/blog-1.html</id><summary type="html">&lt;h1&gt;Exploratory Data Analysis&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Blog</title><link href="https://jonathan-zz-zhao.github.io/my-blog/" rel="alternate"></link><link href="https://jonathan-zz-zhao.github.io/my-blog/feeds/all-en.atom.xml" rel="self"></link><id>https://jonathan-zz-zhao.github.io/my-blog/</id><updated>2019-06-13T10:20:00-04:00</updated><entry><title>First Blog Post</title><link href="https://jonathan-zz-zhao.github.io/my-blog/blog-1.html" rel="alternate"></link><published>2019-06-13T10:20:00-04:00</published><updated>2019-06-13T10:20:00-04:00</updated><author><name>Jonathan</name></author><id>tag:jonathan-zz-zhao.github.io,2019-06-13:/my-blog/blog-1.html</id><summary type="html">&lt;h1&gt;Exploratory Data Analysis&lt;/h1&gt;
 &lt;h2&gt;Preliminaries&lt;/h2&gt;
 &lt;p&gt;In the first blog post, I would like to provide a short guide in the procedures and processes of performing exploratory data analysis (EDA), focusing specifically on Univariate and Bivariate exploratory techniques. Sometimes, the importance of EDA is overlooked because there is a tendency for us …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Exploratory Data Analysis&lt;/h1&gt;
 &lt;h2&gt;Preliminaries&lt;/h2&gt;
@@ -18,6 +18,9 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#Reading in the training set data&lt;/span&gt;
 &lt;span class="n"&gt;train_csv&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;datasets/train.csv&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;train_csv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;test_csv&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;datasets/test.csv&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;test_csv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -747,7 +750,7 @@ memory usage: 1.3+ MB
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="Blog-Post-1_files/Blog-Post-1_19_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="images/Blog-Post-1_19_1.png"&gt;&lt;/p&gt;
 &lt;p&gt;Courtesy of a fellow classmate the seaborn heatmap is created here with the upper-triangular hidden in order to show greater clarity. The colors are also selected to be divergent for greater clarity. In increasing direction of the deeper blue color shows higher levels of correlation. Immediately, we see several dark blue colors in categories of high correlation. For example, there is high correlation between Garage Cars and Garage Areas, Overall Quality and Sale Price, First Floor Square Footage, and Total Basement Square Footage. There could be multi-collinearity present due to their high correlation but this would be an entirely different topic for a different day. Evidently, the Heat Map is a great place to start to see the relationship between different variables. In a way, we can also see some rudimentary and simple predictors of price because that is the variable that we are most concerned with. The saleprice of the house is highly affected by overall quality, and having some correlation with the GR Living Area, Garage Cars and Garage Area. There are a lot of information that can be encoded within the variables, but we can see some form of common sense embedded within these correlations. &lt;/p&gt;
 &lt;p&gt;The next great tool with seaborn is its ability to plot data from all columns in different types of graphs, where in this case we can see how the data is distributed for variables of sale price, overall quality, GR living area, garage cars, total basement square footage, and year built. The visualization allows us to see how the data correlates with each other as well as its own distribution. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -766,7 +769,7 @@ memory usage: 1.3+ MB
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="Blog-Post-1_files/Blog-Post-1_22_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="images/Blog-Post-1_22_1.png"&gt;&lt;/p&gt;
 &lt;p&gt;With the exception of Year Built, we can see that the other data can all be seen as somewhat normally distributed. For sale price specifically, there seems to be a distinct pattern in regression with GR living area and total basement square footage. General outliers could also be seen on the plots. &lt;/p&gt;
 &lt;h2&gt;Dealing with Missing Data&lt;/h2&gt;
 &lt;p&gt;This is arguably one of the most important steps because we need to determine if there are any missing data and how to deal with them. Missing data can be present due to a variety of different reasons, from transcription errors, to faults with the data itself, or even to simply having a category that may be entirely irrelevant. Two quick functions to check are isnull( ) and isna ( ).&lt;/p&gt;
@@ -4015,7 +4018,7 @@ memory usage: 1.3+ MB
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="Blog-Post-1_files/Blog-Post-1_38_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="images/Blog-Post-1_38_1.png"&gt;&lt;/p&gt;
 &lt;p&gt;Graphically, we can see that there aren't significant outliers that needs to be addressed as there are sufficient values that falls outside of the range. There are several values that are higher than four and five, but we would most likely want to hold onto these values because they are not atrociously higher or lower. If there was an instance where it was 10, then we would probably want to drop that entry. Evidently, this univariate analysis can be easily replicated for the other columns, but since we are most interested in the saleprice, we can leave univariate analysis as it is. With bivariate analysis, there may be more aspects of comparison that can be made. &lt;/p&gt;
 &lt;p&gt;With bivariate analysis, we have technically performed the scatter plot already with the pair plots but we will look at some of the plots more in depth to see where some outliers may exist when comparing sale price with other variables.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;var1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Gr Liv Area&amp;#39;&lt;/span&gt;
@@ -4028,7 +4031,7 @@ memory usage: 1.3+ MB
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="Blog-Post-1_files/Blog-Post-1_41_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="images/Blog-Post-1_41_1.png"&gt;&lt;/p&gt;
 &lt;p&gt;Here, we see two entries that can be identified as the obvious outlier where the GR Liv Area is more than 5000, but their sale price is below 200,000. We will proceed to identify the index in which they occurred, and drop them as entries. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#Identify index by using descending order by Gr Liv Area because they are the highest two values.&lt;/span&gt;
 &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Gr Liv Area&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ascending&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)[:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
@@ -4147,7 +4150,7 @@ memory usage: 1.3+ MB
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="Blog-Post-1_files/Blog-Post-1_45_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="images/Blog-Post-1_45_1.png"&gt;&lt;/p&gt;
 &lt;p&gt;The outliers have been removed for GR Liv Area. We can repeat the same process for other variable and up to as many as we like. Obviously, this is dependent on the overall scope of your project, but for the sake of the demonstration, we can repeat again for a different variable such as the basement square footage. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Total Bsmt SF&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concat&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;SalePrice&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="p"&gt;]],&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -4159,7 +4162,7 @@ memory usage: 1.3+ MB
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="Blog-Post-1_files/Blog-Post-1_47_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="images/Blog-Post-1_47_1.png"&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#Arbitrarily we choose to drop the highest 4&lt;/span&gt;
 &lt;span class="n"&gt;train&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Total Bsmt SF&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ascending&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)[:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -4326,8 +4329,8 @@ memory usage: 1.3+ MB
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="Blog-Post-1_files/Blog-Post-1_50_1.png"&gt;&lt;/p&gt;
-&lt;p&gt;There we have the most rudimentary and basics of EDA. There are various aspects that could have been improved upon within the existing demonstration. For one, the drop could have been iterated rather than listing out the four values. We can improve the function by using a for loop to check for any value that is greater than say, 2500, and dropping the corresponding outliers. Further processes would involve using dummy variables, and evidently, a lot more depth can be attempted at EDA for the curious perfectionist. &lt;/p&gt;</content><category term="python"></category></entry><entry><title>Second Blog Post</title><link href="https://jonathan-zz-zhao.github.io/my-blog/blog-2.html" rel="alternate"></link><published>2019-06-13T10:20:00-04:00</published><updated>2019-06-13T10:20:00-04:00</updated><author><name>Jonathan</name></author><id>tag:jonathan-zz-zhao.github.io,2019-06-13:/my-blog/blog-2.html</id><summary type="html">&lt;h1&gt;Type 1 or Type 2?&lt;/h1&gt;
+&lt;p&gt;&lt;img alt="png" src="images/Blog-Post-1_50_1.png"&gt;&lt;/p&gt;
+&lt;p&gt;There we have the most rudimentary and basics of EDA. There are various aspects that could have been improved upon within the existing demonstration. For one, the drop could have been iterated rather than listing out the four values. We can improve the function by using a for loop to check for any value that is greater than say, 2500, and dropping the corresponding outliers. Further processes would involve using dummy variables, and evidently, a lot more depth can be attempted at EDA for the curious perfectionist.&lt;/p&gt;</content><category term="python"></category></entry><entry><title>Second Blog Post</title><link href="https://jonathan-zz-zhao.github.io/my-blog/blog-2.html" rel="alternate"></link><published>2019-06-13T10:20:00-04:00</published><updated>2019-06-13T10:20:00-04:00</updated><author><name>Jonathan</name></author><id>tag:jonathan-zz-zhao.github.io,2019-06-13:/my-blog/blog-2.html</id><summary type="html">&lt;h1&gt;Type 1 or Type 2?&lt;/h1&gt;
 &lt;p&gt;One of the greatest things that I have struggled with inferential statistics is hypothesis testing. Without going any further, there is little doubt that the image below best expresses what the difference between Type 1 and Type 2 error refers to.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="kn"&gt;import …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;Type 1 or Type 2?&lt;/h1&gt;
 &lt;p&gt;One of the greatest things that I have struggled with inferential statistics is hypothesis testing. Without going any further, there is little doubt that the image below best expresses what the difference between Type 1 and Type 2 error refers to.&lt;/p&gt;

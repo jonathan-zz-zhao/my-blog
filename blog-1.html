@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <title>Exploratory Data Analysis</title>
+ <title>First Blog Post</title>
  <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
  <div class="container">
@@ -12,7 +12,7 @@
  <div class="container">
 <div class="row">
  <div class="col-md-8">
-  <h3>Exploratory Data Analysis</h3>
+  <h3>First Blog Post</h3>
   <label>2019-06-13</label>
   <h1>Exploratory Data Analysis</h1>
 <h2>Preliminaries</h2>
@@ -31,6 +31,9 @@
 <div class="highlight"><pre><span></span><span class="c1">#Reading in the training set data</span>
 <span class="n">train_csv</span><span class="o">=</span> <span class="s1">&#39;datasets/train.csv&#39;</span>
 <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">train_csv</span><span class="p">)</span>
+
+<span class="n">test_csv</span><span class="o">=</span> <span class="s1">&#39;datasets/test.csv&#39;</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">test_csv</span><span class="p">)</span>
 </pre></div>
 
 
@@ -760,7 +763,7 @@ memory usage: 1.3+ MB
 </pre></div>
 
 
-<p><img alt="png" src="Blog-Post-1_files/Blog-Post-1_19_1.png"></p>
+<p><img alt="png" src="images/Blog-Post-1_19_1.png"></p>
 <p>Courtesy of a fellow classmate the seaborn heatmap is created here with the upper-triangular hidden in order to show greater clarity. The colors are also selected to be divergent for greater clarity. In increasing direction of the deeper blue color shows higher levels of correlation. Immediately, we see several dark blue colors in categories of high correlation. For example, there is high correlation between Garage Cars and Garage Areas, Overall Quality and Sale Price, First Floor Square Footage, and Total Basement Square Footage. There could be multi-collinearity present due to their high correlation but this would be an entirely different topic for a different day. Evidently, the Heat Map is a great place to start to see the relationship between different variables. In a way, we can also see some rudimentary and simple predictors of price because that is the variable that we are most concerned with. The saleprice of the house is highly affected by overall quality, and having some correlation with the GR Living Area, Garage Cars and Garage Area. There are a lot of information that can be encoded within the variables, but we can see some form of common sense embedded within these correlations. </p>
 <p>The next great tool with seaborn is its ability to plot data from all columns in different types of graphs, where in this case we can see how the data is distributed for variables of sale price, overall quality, GR living area, garage cars, total basement square footage, and year built. The visualization allows us to see how the data correlates with each other as well as its own distribution. </p>
 <div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
@@ -779,7 +782,7 @@ memory usage: 1.3+ MB
 </pre></div>
 
 
-<p><img alt="png" src="Blog-Post-1_files/Blog-Post-1_22_1.png"></p>
+<p><img alt="png" src="images/Blog-Post-1_22_1.png"></p>
 <p>With the exception of Year Built, we can see that the other data can all be seen as somewhat normally distributed. For sale price specifically, there seems to be a distinct pattern in regression with GR living area and total basement square footage. General outliers could also be seen on the plots. </p>
 <h2>Dealing with Missing Data</h2>
 <p>This is arguably one of the most important steps because we need to determine if there are any missing data and how to deal with them. Missing data can be present due to a variety of different reasons, from transcription errors, to faults with the data itself, or even to simply having a category that may be entirely irrelevant. Two quick functions to check are isnull( ) and isna ( ).</p>
@@ -4028,7 +4031,7 @@ memory usage: 1.3+ MB
 </pre></div>
 
 
-<p><img alt="png" src="Blog-Post-1_files/Blog-Post-1_38_1.png"></p>
+<p><img alt="png" src="images/Blog-Post-1_38_1.png"></p>
 <p>Graphically, we can see that there aren't significant outliers that needs to be addressed as there are sufficient values that falls outside of the range. There are several values that are higher than four and five, but we would most likely want to hold onto these values because they are not atrociously higher or lower. If there was an instance where it was 10, then we would probably want to drop that entry. Evidently, this univariate analysis can be easily replicated for the other columns, but since we are most interested in the saleprice, we can leave univariate analysis as it is. With bivariate analysis, there may be more aspects of comparison that can be made. </p>
 <p>With bivariate analysis, we have technically performed the scatter plot already with the pair plots but we will look at some of the plots more in depth to see where some outliers may exist when comparing sale price with other variables.</p>
 <div class="highlight"><pre><span></span><span class="n">var1</span> <span class="o">=</span> <span class="s1">&#39;Gr Liv Area&#39;</span>
@@ -4041,7 +4044,7 @@ memory usage: 1.3+ MB
 </pre></div>
 
 
-<p><img alt="png" src="Blog-Post-1_files/Blog-Post-1_41_1.png"></p>
+<p><img alt="png" src="images/Blog-Post-1_41_1.png"></p>
 <p>Here, we see two entries that can be identified as the obvious outlier where the GR Liv Area is more than 5000, but their sale price is below 200,000. We will proceed to identify the index in which they occurred, and drop them as entries. </p>
 <div class="highlight"><pre><span></span><span class="c1">#Identify index by using descending order by Gr Liv Area because they are the highest two values.</span>
 <span class="n">train</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;Gr Liv Area&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span>
@@ -4160,7 +4163,7 @@ memory usage: 1.3+ MB
 </pre></div>
 
 
-<p><img alt="png" src="Blog-Post-1_files/Blog-Post-1_45_1.png"></p>
+<p><img alt="png" src="images/Blog-Post-1_45_1.png"></p>
 <p>The outliers have been removed for GR Liv Area. We can repeat the same process for other variable and up to as many as we like. Obviously, this is dependent on the overall scope of your project, but for the sake of the demonstration, we can repeat again for a different variable such as the basement square footage. </p>
 <div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;Total Bsmt SF&#39;</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train</span><span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="n">var</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -4172,7 +4175,7 @@ memory usage: 1.3+ MB
 </pre></div>
 
 
-<p><img alt="png" src="Blog-Post-1_files/Blog-Post-1_47_1.png"></p>
+<p><img alt="png" src="images/Blog-Post-1_47_1.png"></p>
 <div class="highlight"><pre><span></span><span class="c1">#Arbitrarily we choose to drop the highest 4</span>
 <span class="n">train</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;Total Bsmt SF&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
@@ -4339,8 +4342,8 @@ memory usage: 1.3+ MB
 </pre></div>
 
 
-<p><img alt="png" src="Blog-Post-1_files/Blog-Post-1_50_1.png"></p>
-<p>There we have the most rudimentary and basics of EDA. There are various aspects that could have been improved upon within the existing demonstration. For one, the drop could have been iterated rather than listing out the four values. We can improve the function by using a for loop to check for any value that is greater than say, 2500, and dropping the corresponding outliers. Further processes would involve using dummy variables, and evidently, a lot more depth can be attempted at EDA for the curious perfectionist. </p>
+<p><img alt="png" src="images/Blog-Post-1_50_1.png"></p>
+<p>There we have the most rudimentary and basics of EDA. There are various aspects that could have been improved upon within the existing demonstration. For one, the drop could have been iterated rather than listing out the four values. We can improve the function by using a for loop to check for any value that is greater than say, 2500, and dropping the corresponding outliers. Further processes would involve using dummy variables, and evidently, a lot more depth can be attempted at EDA for the curious perfectionist.</p>
  </div>
 </div>
  </div>
